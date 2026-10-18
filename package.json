@@ -1,0 +1,37 @@
+{
+  "name": "@roshcompanylabs/leakprobe",
+  "version": "0.1.0",
+  "description": "Independent adversarial benchmark that proves where LLM PII/secret redaction leaks.",
+  "type": "module",
+  "bin": {
+    "leakprobe": "src/cli.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "selftest": "node src/cli.js run --target src/adapters/regexBaseline.js",
+    "selftest:json": "node src/cli.js run --target src/adapters/regexBaseline.js --json"
+  },
+  "keywords": [
+    "pii",
+    "redaction",
+    "llm",
+    "security",
+    "benchmark",
+    "dlp",
+    "secrets",
+    "compliance",
+    "guardrails"
+  ],
+  "license": "MIT",
+  "author": "ROSH Company Labs",
+  "dependencies": {}
+}

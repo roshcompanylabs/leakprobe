@@ -1,0 +1,10 @@
+{
+  "name": "leakprobe-benchmarks",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Real-world redaction targets tested with LeakProbe. Kept out of the published package so the core stays zero-dependency.",
+  "dependencies": {
+    "redact-pii": "^3.4.0"
+  }
+}
