@@ -68,4 +68,4 @@ Test only redaction you are allowed to test — open-source tools, your own serv
 
 MIT (provisional — the corpus licensing may be revisited).
 
-— ROSH Company Labs
+— ROSH™ Company Labs

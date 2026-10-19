@@ -127,6 +127,14 @@ export const PII_CORPUS = [
     input: 'Tel: 0612345678 (whatsapp).',
     sensitive: ['0612345678'],
   },
+  {
+    id: 'phone-streaming-split-01',
+    category: 'phone',
+    technique: 'streaming_split',
+    input: 'Agent note: call the patient at +1 (415)\n555-0132 before noon.',
+    sensitive: ['+1 (415)', '555-0132'],
+    note: 'Value split across a chunk/line boundary — the classic streaming leak (ref: data-privacy-stack/presidio #2312): the first half is emitted before the rest is detected.',
+  },
 
   // ---------- Moroccan national ID (CIN) ----------
   {
@@ -136,6 +144,16 @@ export const PII_CORPUS = [
     input: 'CIN du titulaire: AB123456.',
     sensitive: ['AB123456'],
     note: 'Moroccan CIN: 1–2 letters + 6 digits. Rarely covered by default detectors.',
+  },
+
+  // ---------- Italian national ID (Codice Fiscale) ----------
+  {
+    id: 'it-codice-fiscale-01',
+    category: 'it_codice_fiscale',
+    technique: 'locale_italy',
+    input: 'Codice Fiscale del cliente: RSSMRA85T10A562S.',
+    sensitive: ['RSSMRA85T10A562S'],
+    note: 'Italian Codice Fiscale. Presidio /analyze silently drops it when the IT model is not loaded (ref: data-privacy-stack/presidio #2256) — leaks while other entities stay blocked.',
   },
 
   // ---------- API keys / tokens (all FAKE or AWS published example) ----------

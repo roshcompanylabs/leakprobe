@@ -108,6 +108,16 @@ export const SECRETS_CORPUS = [
     input: `request failed: {"headers":{"authorization":"Bearer ${BEARER}"}}`,
     sensitive: [BEARER],
   },
+
+  // ---- Secret inside tool-call arguments (conversation history) ----
+  {
+    id: 'tool-call-args-01',
+    category: 'secret_tool_call',
+    technique: 'tool_call_args',
+    input: `history: [{"role":"assistant","tool_calls":[{"function":{"name":"charge","arguments":"{\\"api_key\\":\\"${SK_LIVE}\\"}"}}]}]`,
+    sensitive: [SK_LIVE],
+    note: 'Secret inside tool-call arguments in conversation history. Pre-call guardrails that only scan the latest user message leave it unmasked (ref: BerriAI/litellm #41265).',
+  },
 ];
 
 export default SECRETS_CORPUS;
